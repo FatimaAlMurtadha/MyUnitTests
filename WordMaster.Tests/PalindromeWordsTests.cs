@@ -8,7 +8,7 @@ public class PalindromeWordsTests
     [Fact]
     public void PalindromeWords_ShouldReturnTrue()
     {
-        PlindromeChecker checker = new PlindromeChecker();
+        PlindromeWordsChecker checker = new PlindromeWordsChecker();
         bool result = checker.IsPlindrome("level");
         
         Assert.True(result);
@@ -17,7 +17,7 @@ public class PalindromeWordsTests
     [Fact]
     public void PalindromeWords_ShouldReturnFalse()
     {
-        PlindromeChecker checker = new PlindromeChecker();
+        PlindromeWordsChecker checker = new PlindromeWordsChecker();
 
         bool result = checker.IsPlindrome("hello");
         
