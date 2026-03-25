@@ -9,8 +9,10 @@ public class WordScoreCalculator
         if (word.Length <5)
         {
             score += 5;
-            return score;
+            
         }
+
+        return score;
         
     }
 }
