@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WordMaster.Domain/WordMaster.Domain.csproj" />
+  <Project Path="WordMaster.Tests/WordMaster.Tests.csproj" />
+</Solution>
