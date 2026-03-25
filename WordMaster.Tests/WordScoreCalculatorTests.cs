@@ -3,8 +3,16 @@ namespace WordMaster.Tests;
 using global::WordMaster.Domain;
 using Xunit;
 
-public class WordScoreCalculatorTests
+public class WordScoreCalculatorTests // class
 {
+    // New : 
+    // use a constructor to create a calculator
+    private readonly WordScoreCalculator calculator; // init the constractor's variable
+    public WordScoreCalculatorTests()  // a constructor
+    {
+        calculator = new WordScoreCalculator();
+    }
+    
     /*
      * The second feature // Score system
      * // 1 point for every letter and Bonus for words long words +5
@@ -12,20 +20,23 @@ public class WordScoreCalculatorTests
 
     // 1. a 3 letters word
     [Fact]
-    public void ShortWord_ShouldReturnLengthScore()
+    public void CalculateScore_ShortWord_ReturnsWordLength() // fix naming
     {
-        WordScoreCalculator calculator = new WordScoreCalculator();
-        int score = calculator.CalculateScore("cat");
+        // Arrange
+        string word = "cat";
+        
+        // Act
+        int score = calculator.CalculateScore(word);
 
+        // Assert
         Assert.Equal(3, score);
     }
     
     // 2. longer than 5 letters
     [Fact]
-    public void LongWord_ShouldAddBonus()
+    public void CalculateScore_LongWord_AddBonus()
     {
         // Arrange
-        WordScoreCalculator calculator = new WordScoreCalculator();
         string word = "planet";
         // Act
         int score = calculator.CalculateScore(word);
@@ -40,9 +51,9 @@ public class WordScoreCalculatorTests
     [InlineData("tree", 4)]
     [InlineData("planet", 11)]
     [InlineData("elephant", 13)]
-    public void LongWord_ShouldReturnCorrectScore(string word, int expectedScore)
+    public void CalculateScore_Word_ReturnsCorrectScore(string word, int expectedScore)
     {
-        WordScoreCalculator calculator = new WordScoreCalculator();
+        // Act
         int score = calculator.CalculateScore(word);
         Assert.Equal(expectedScore, score);
     }
