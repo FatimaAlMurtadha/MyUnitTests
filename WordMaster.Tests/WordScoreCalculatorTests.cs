@@ -37,7 +37,7 @@ public class WordScoreCalculatorTests // class
     public void CalculateScore_LongWord_AddBonus()
     {
         // Arrange
-        string word = "planet";
+        string word = "banana";
         // Act
         int score = calculator.CalculateScore(word);
         
@@ -48,9 +48,9 @@ public class WordScoreCalculatorTests // class
     // Theory to handle score calculation
     [Theory]
     [InlineData("cat", 3)]
-    [InlineData("tree", 4)]
-    [InlineData("planet", 11)]
-    [InlineData("elephant", 13)]
+    [InlineData("fork", 4)]
+    [InlineData("banana", 11)]
+    [InlineData("sandwich", 13)]
     public void CalculateScore_Word_ReturnsCorrectScore(string word, int expectedScore)
     {
         // Act
@@ -86,7 +86,7 @@ public class WordScoreCalculatorTests // class
     public void CalculateScore_WordWithFiveLetters_ShouldNotHaveBonus()
     {
         // Act
-        int score = calculator.CalculateScore("apple");
+        int score = calculator.CalculateScore("brown");
         // Assert
         Assert.Equal(5, score);
     }
