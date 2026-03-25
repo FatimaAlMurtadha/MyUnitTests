@@ -119,4 +119,19 @@ public class WordScoreCalculatorTests // class
         // Assert
         Assert.Equal(3, score);
     }
+    
+    
+    /*
+     *  New TDD
+     */
+    [Fact]
+    public void CalculateScore_WordContainingE_AddsTwoBonusPoints()
+    {
+        // Arrange
+        string word = "tree";
+        // Act 
+        int score = calculator.CalculateScore(word);
+        // Assert
+        Assert.Equal(6, score); // 4 +2 
+    }
 }
