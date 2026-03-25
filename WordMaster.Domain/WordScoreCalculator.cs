@@ -6,7 +6,7 @@ public class WordScoreCalculator
     {
         int score = word.Length;
 
-        if (word.Length <5)
+        if (word.Length > 5)
         {
             score += 5;
             
