@@ -12,17 +12,13 @@ public class WordScoreCalculator
 
         word = word.Trim();
         
-        if (word.Length == 0)
-        {
-            return 0;
-        }
+        int letters = word.Length;
+        int score = letters;
+        bool hasBonus = letters > 5;
 
-        int score = word.Length;
-
-        if (word.Length > 5)
+        if (hasBonus)
         {
             score += 5;
-
         }
 
         return score;
