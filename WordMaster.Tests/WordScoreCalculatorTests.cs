@@ -57,4 +57,66 @@ public class WordScoreCalculatorTests // class
         int score = calculator.CalculateScore(word);
         Assert.Equal(expectedScore, score);
     }
+    
+    /*
+     *  Edge Cases
+     */
+    // 1. Empty string
+    [Fact]
+    public void CalculateScore_emptyWord_ReturnsZero()
+    {
+        // Arrange
+        string word = "";
+        // Act
+        int score = calculator.CalculateScore(word);
+        // Assert
+        Assert.Equal(0, score);
+    }
+    
+    // 2. Null
+    [Fact]
+    public void CalculateScore_NullWord_ThrowException()
+    {
+        // Act and Assert
+        Assert.Throws<ArgumentNullException>(() => calculator.CalculateScore(null));
+    }
+    
+    // 3. The bonus boundary
+    [Fact]
+    public void CalculateScore_WordWithFiveLetters_ShouldNotHaveBonus()
+    {
+        // Act
+        int score = calculator.CalculateScore("apple");
+        // Assert
+        Assert.Equal(5, score);
+    }
+    
+    // 4. The words more than 5 letters
+    [Fact]
+    public void CalculateScore_WordWithSixLetters_ShouldAddBonus()
+    {
+        // Act
+        int score = calculator.CalculateScore("banana");
+        // Assert
+        Assert.Equal(11, score); // 6 + 5
+    }
+    // 5. UpperCase Words
+    [Fact]
+    public void CalculateScore_WordWithUppercase_ShouldCountLettersCorrectly()
+    {
+        // Act
+        int score = calculator.CalculateScore("Cat");
+        // Assert
+        Assert.Equal(3, score);
+    }
+    
+    // 6. Empty spaces
+    [Fact]
+    public void CalculateScore_WordWithSpaces_ShouldIgnoreSpacesCorrectly()
+    {
+        // Act
+        int score = calculator.CalculateScore("  cat ");
+        // Assert
+        Assert.Equal(3, score);
+    }
 }
