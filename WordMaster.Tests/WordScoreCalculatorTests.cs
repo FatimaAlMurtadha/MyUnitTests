@@ -14,7 +14,7 @@ public class WordScoreCalculatorTests
     [Fact]
     public void ShortWord_ShouldReturnLengthScore()
     {
-        ScoreCalculator calculator = new ScoreCalculator();
+        WordScoreCalculator calculator = new WordScoreCalculator();
         int score = calculator.CalculateScore("cat");
 
         Assert.Equal(3, score);
