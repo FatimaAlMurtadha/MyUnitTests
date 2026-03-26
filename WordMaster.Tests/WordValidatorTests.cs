@@ -7,7 +7,7 @@ public class WordValidateTests
 {
   
   /*
-   * The first feature  // the word length
+   * The first feature  // the word length -- only reading 
    * */
    
   // 1. less than 3 letters  ** FAILD **
